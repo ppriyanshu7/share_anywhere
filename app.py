@@ -7,12 +7,11 @@ import os
 import json
 #from dotenv import load_dotenv
 
-# 🔐 Load Firebase credentials from env file
-#load_dotenv("firebase_env.txt")
-firebase_cred_json = os.getenv("FIREBASE_CREDENTIALS")
+with open("firebase_credentials.json") as f:
+    firebase_cred_json = json.load(f)
 
-# ✅ Load credentials securely
-cred = credentials.Certificate(json.loads(firebase_cred_json))
+cred = credentials.Certificate(firebase_cred_json)
+
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
