@@ -6,7 +6,7 @@ import base64
 import os
 import json
 #from dotenv import load_dotenv
-firebase_cred_json = os.getenv("FIREBASE_CREDENTIALS")
+firebase_cred_json = os.environ.get("FIREBASE_CREDENTIALS")
 cred = credentials.Certificate(json.loads(firebase_cred_json))
 
 firebase_admin.initialize_app(cred)
