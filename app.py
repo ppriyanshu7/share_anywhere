@@ -5,10 +5,10 @@ import uuid
 import base64
 import os
 import json
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 # 🔐 Load Firebase credentials from env file
-load_dotenv("firebase_env.txt")
+#load_dotenv("firebase_env.txt")
 firebase_cred_json = os.getenv("FIREBASE_CREDENTIALS")
 
 # ✅ Load credentials securely
@@ -236,5 +236,5 @@ def get_files():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
