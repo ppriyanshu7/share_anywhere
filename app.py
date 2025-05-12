@@ -6,11 +6,8 @@ import base64
 import os
 import json
 #from dotenv import load_dotenv
-
-with open("firebase_credentials.json") as f:
-    firebase_cred_json = json.load(f)
-
-cred = credentials.Certificate(firebase_cred_json)
+firebase_cred_json = os.getenv("FIREBASE_CREDENTIALS")
+cred = credentials.Certificate(json.loads(firebase_cred_json))
 
 firebase_admin.initialize_app(cred)
 db = firestore.client()
